@@ -6,9 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Created by Administrateur on 05/01/2016.
@@ -22,8 +21,9 @@ public class PlaceholderFragment extends Fragment {
     OnSendFeelStatusListener mCallback;
 
     private Button buttonSendFeel = null;
-    private ListView listView;
-    private ArrayAdapter<String> adapter;
+    private TextView textViewWelcome = null;
+    private String sName = "";
+
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -62,13 +62,9 @@ public class PlaceholderFragment extends Fragment {
             }
         });
 
-        listView = (ListView) rootView.findViewById(R.id.sexList);
-        String[] sexs = getResources().getStringArray(R.array.sex_array);
-        adapter = new ArrayAdapter<String>(getActivity(),R.layout.list_view_row,R.id.textViewList, sexs);
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listView.setAdapter(adapter);
-
-
+        textViewWelcome=(TextView) rootView.findViewById(R.id.textViewWelcome);
+        String delicious_smiley = " \uD83D\uDE0B";
+        textViewWelcome.setText("Welcome Back "+sName+delicious_smiley);
 
         return rootView;
     }
