@@ -15,26 +15,180 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome Panel"
+            android:text="Welcome Back !"
             android:id="@+id/textViewtest"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            style="@style/AppTheme"
+            android:textSize="30dp" />
 
-        <Button
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="How do you feel today ?"
-            android:id="@+id/buttonSendFeel"
-             />
+            android:weightSum="2"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My name"
+                        android:id="@+id/textView6"
+                        android:editable="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Weight:"
+                        android:id="@+id/textView8" />
+
+                    <EditText
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editText" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size"
+                        android:id="@+id/textView11" />
+
+                    <EditText
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editText5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sex"
+                        android:id="@+id/textView12" />
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sexList" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age"
+                        android:id="@+id/textView13" />
+
+                    <EditText
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editText7" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kcal/day sugg."
+                        android:id="@+id/textView7" />
+
+                    <EditText
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editText3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your diet picks:"
+                        android:id="@+id/textView9" />
+
+                    <EditText
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/editText2" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <TextView android:id="@+id/section_label" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How do you feel today ?"
+        android:id="@+id/buttonSendFeel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

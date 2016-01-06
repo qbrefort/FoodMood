@@ -17,9 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 
 
 
@@ -40,6 +42,8 @@ public class WelcomeActivity extends ActionBarActivity implements MoodActivity.O
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+
+
 
 
 
@@ -70,8 +74,11 @@ public class WelcomeActivity extends ActionBarActivity implements MoodActivity.O
 
         Food best_food2 = the_Food_List.get_a_food_by_char("fer","vit_a");
 
-        System.out.println("La meilleure nourriture suivant le fer:"+best_food1.getName());
+        System.out.println("La meilleure nourriture suivant le fer:" + best_food1.getName());
         System.out.println("La meilleure nourriture suivant le fer et la vit A:" + best_food2.getName());
+
+
+
 
 
         //textViewtest.getText();
