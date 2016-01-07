@@ -12,4 +12,66 @@
         <item>M</item>
         <item>F</item>
     </string-array>
+
+    <string-array name="food_array">
+    <item>:coffee:</item>
+    <item>:tea:</item>
+    <item>:sake:</item>
+    <item>:baby_bottle:</item>
+    <item>:beer:</item>
+    <item>:beers:</item>
+    <item>:cocktail:</item>
+    <item>:tropical_drink:</item>
+    <item>:wine_glass:</item>
+    <item>:fork_and_knife:</item>
+    <item>:pizza:</item>
+    <item>:hamburger:</item>
+    <item>:fries:</item>
+    <item>:poultry_leg:</item>
+    <item>:meat_on_bone:</item>
+    <item>:spaghetti:</item>
+    <item>:curry:</item>
+    <item>:fried_shrimp:</item>
+    <item>:bento:</item>
+    <item>:sushi:</item>
+    <item>:fish_cake:</item>
+    <item>:rice_ball:</item>
+    <item>:rice_cracker:</item>
+    <item>:rice:</item>
+    <item>:ramen:</item>
+    <item>:stew:</item>
+    <item>:oden:</item>
+    <item>:dango:</item>
+    <item>:egg:</item>
+    <item>:bread:</item>
+    <item>:doughnut:</item>
+    <item>:custard:</item>
+    <item>:icecream:</item>
+    <item>:ice_cream:</item>
+    <item>:shaved_ice:</item>
+    <item>:birthday:</item>
+    <item>:cake:</item>
+    <item>:cookie:</item>
+    <item>:chocolate_bar:</item>
+    <item>:candy:</item>
+    <item>:lollipop:</item>
+    <item>:honey_pot:</item>
+    <item>:apple:</item>
+    <item>:green_apple:</item>
+    <item>:tangerine:</item>
+    <item>:lemon:</item>
+    <item>:cherries:</item>
+    <item>:grapes:</item>
+    <item>:watermelon:</item>
+    <item>:strawberry:</item>
+    <item>:peach:</item>
+    <item>:melon:</item>
+    <item>:banana:</item>
+    <item>:pear:</item>
+    <item>:pineapple:</item>
+    <item>:sweet_potato:</item>
+    <item>:eggplant:</item>
+    <item>:tomato:</item>
+    <item>:corn:</item>
+    </string-array>
 </resources>
