@@ -25,7 +25,7 @@
 
         <com.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/textViewWelcome"
-            android:text="Welcome ! \uD83D\uDE0B"
+            android:text="Welcome !"
             android:textSize="30dp"
             emojicon:emojiconSize="30sp"
             android:layout_width="match_parent"
@@ -89,7 +89,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText5"
+                        android:id="@+id/editTextSize"
                         android:theme="@style/AppTheme"
                         style="@style/AppTheme" />
                 </LinearLayout>
@@ -165,7 +165,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText7"
+                            android:id="@+id/editTextAge"
                         android:theme="@style/AppTheme"
                         style="@style/AppTheme" />
                 </LinearLayout>
@@ -251,16 +251,34 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="How do you feel today ?"
-        android:id="@+id/buttonSendFeel"
+        android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:theme="@style/AppTheme"
-        style="@style/AppTheme" />
+        android:layout_alignParentStart="true">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextViewProfile"
+            />
+
+        <Button
+            style="@style/AppTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Profile"
+            android:id="@+id/buttonUpdateProfile"
+            android:theme="@style/AppTheme" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How do you feel today ?"
+            android:id="@+id/buttonSendFeel"
+            android:theme="@style/AppTheme"
+            style="@style/AppTheme" />
+    </LinearLayout>
 </RelativeLayout>
