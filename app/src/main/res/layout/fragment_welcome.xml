@@ -205,11 +205,14 @@
                         style="@style/AppTheme" />
                 </LinearLayout>
 
+
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:theme="@style/AppTheme"
+                    android:id="@+id/LayoutFoodPick"
                     style="@style/AppTheme">
 
                     <TextView
@@ -245,6 +248,17 @@
                         android:text=""
                         style="@style/AppTheme"
                         android:theme="@style/AppTheme" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/AppTheme"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:theme="@style/AppTheme"
+                    android:id="@+id/linearLayoutFood" >
+
                 </LinearLayout>
             </LinearLayout>
 

@@ -8,18 +8,18 @@
         android:valueFrom="40"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:valueType="floatType"
-        android:valueTo="-40" />
+        android:valueTo="-30" />
     <objectAnimator
         android:duration="1000"
         android:propertyName="rotation"
-        android:valueFrom="-40"
+        android:valueFrom="-30"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:valueType="floatType"
-        android:valueTo="40" />
+        android:valueTo="20" />
     <objectAnimator
         android:duration="1000"
         android:propertyName="rotation"
-        android:valueFrom="40"
+        android:valueFrom="20"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:valueType="floatType"
         android:valueTo="0" />

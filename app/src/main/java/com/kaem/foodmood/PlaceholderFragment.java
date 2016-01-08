@@ -16,14 +16,18 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,7 +92,7 @@ public class PlaceholderFragment extends Fragment {
                 int duration1 = Toast.LENGTH_SHORT;
                 Toast toast2 = Toast.makeText(getActivity(), text1, duration1);
                 toast2.show();
-                if(name.toString().equals("deleteALL")){
+                if (name.toString().equals("deleteALL")) {
                     mydb.deleteAllContacts();
                     mydb = new ProfileInfo(getActivity());
                     Context context = getActivity();
@@ -96,7 +100,7 @@ public class PlaceholderFragment extends Fragment {
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-                }else {
+                } else {
                     if (name.toString().isEmpty() || sex.toString().isEmpty() || size.toString().isEmpty() || Integer.toString(age).isEmpty()) {
                         Context context = getActivity();
                         CharSequence text = "Please fill all required info";
@@ -161,6 +165,27 @@ public class PlaceholderFragment extends Fragment {
 
         }
 
+        //TODO
+        //create table of string to declare name of TextView
+        //Call each by table_name[i]
+
+        ArrayList<TextView> textViewArray = new ArrayList<>();
+
+        LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.linearLayoutFood);
+
+        for(int i=0;i<50;i++){
+            String sTextViewFoodPick = "TextViewFoodPick"+ Integer.toString(i);
+            LinearLayout A = new LinearLayout(getActivity());
+            A.setOrientation(LinearLayout.HORIZONTAL);
+            TextView tempTextView = new TextView(getActivity());
+            tempTextView.setText(" " + i);
+            tempTextView.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+            tempTextView.setGravity(Gravity.LEFT);
+            textViewArray.add(i,tempTextView);
+            layout.addView(tempTextView);
+        }
+
+
         TextViewFoodPick1.append(food_emoji_selected[0]);
         TextViewFoodPick2.append(food_emoji_selected[1]);
         TextViewFoodPick3.append(food_emoji_selected[2]);
@@ -178,22 +203,42 @@ public class PlaceholderFragment extends Fragment {
         foodAnim3.setTarget(TextViewFoodPick3);
         Animator foodAnim3out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
         foodAnim3out.setTarget(TextViewFoodPick3);
-        AnimatorSet s_in = new AnimatorSet();
-        s_in.playTogether(foodAnim1, foodAnim2, foodAnim3);
-        AnimatorSet s_out = new AnimatorSet();
-        //s_out.playTogether(foodAnim1out, foodAnim2out, foodAnim3out);
 
-        AnimatorSet s1 = new AnimatorSet();
-        s1.playTogether(foodAnim1, foodAnim1out);
-        s1.start();
+//        AnimatorSet s1 = new AnimatorSet();
+//        s1.playTogether(foodAnim1, foodAnim1out);
+//        s1.start();
+//
+//        AnimatorSet s2 = new AnimatorSet();
+//        s2.playTogether(foodAnim2, foodAnim2out);
+//        s2.setStartDelay(200);
+//        s2.start();
+        TextViewFoodPick1.setScaleY(0);
+        TextViewFoodPick1.setScaleX(0);
+        TextViewFoodPick2.setScaleX(0);
+        TextViewFoodPick2.setScaleY(0);
+        TextViewFoodPick3.setScaleX(0);
+        TextViewFoodPick3.setScaleY(0);
 
-        AnimatorSet s2 = new AnimatorSet();
-        s2.playTogether(foodAnim2, foodAnim2out);
-        s2.start();
+        Animator foodAnim1pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
+        foodAnim1pop.setTarget(TextViewFoodPick1);
+        foodAnim1pop.start();
 
-        AnimatorSet s3 = new AnimatorSet();
-        s3.playTogether(foodAnim3, foodAnim3out);
-        s3.start();
+        Animator foodAnim2pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
+        foodAnim2pop.setTarget(TextViewFoodPick2);
+        foodAnim2pop.setStartDelay(200);
+        foodAnim2pop.start();
+
+
+
+        Animator foodAnim3pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
+        foodAnim3pop.setTarget(TextViewFoodPick3);
+        foodAnim3pop.setStartDelay(400);
+        foodAnim3pop.start();
+
+//        AnimatorSet s3 = new AnimatorSet();
+//        s3.play(foodAnim3pop);
+//        s2.setStartDelay(400);
+//        s3.start();
 
 
 
