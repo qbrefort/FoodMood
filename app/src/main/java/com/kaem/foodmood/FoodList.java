@@ -15,12 +15,12 @@ public class FoodList extends Food {
     }
 
     public void sort_by(){
-
+        //TODO
     }
 
     public Food get_a_food_by_char(String carac){
         Food best_food = new Food();
-        int best_carac=-1;
+        double best_carac=-1;
         for(Food temp_food : this.Food_List){
                 if (temp_food.getCarac(carac)> best_carac){
                     best_carac = temp_food.getCarac(carac);
@@ -34,7 +34,7 @@ public class FoodList extends Food {
 
     public Food get_a_food_by_char(String carac1,String carac2){
         Food best_food = new Food();
-        int best_carac=-1;
+        double best_carac=-1;
         for(Food temp_food : this.Food_List){
             if (temp_food.getCarac(carac1) + temp_food.getCarac(carac2) > best_carac){
                 best_carac = temp_food.getCarac(carac1) + temp_food.getCarac(carac2);

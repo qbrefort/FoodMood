@@ -85,36 +85,6 @@ public class PlaceholderFragment extends Fragment {
      * number.
      */
 
-    public final List<String[]> readCsv(Context context) {
-        List<String[]> questionList = new ArrayList<String[]>();
-        AssetManager assetManager = context.getAssets();
-
-        try {
-            InputStream csvStream = assetManager.open("food_data_csv.csv");
-            InputStreamReader csvStreamReader = new InputStreamReader(csvStream);
-            CSVReader csvReader = new CSVReader(csvStreamReader);
-            String[] line;
-
-            // throw away the header
-            csvReader.readNext();
-
-            while ((line = csvReader.readNext()) != null) {
-                questionList.add(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        String stemp = "";
-        for (String s : questionList.get(0)) {
-            stemp += " " + s;
-        }
-        TextViewProfile.setText(stemp);
-
-
-        return questionList;
-    }
 
     public void addListenerOnProfile(){
 
@@ -433,8 +403,6 @@ public class PlaceholderFragment extends Fragment {
         addListenerOnEditTextName();
         addListenerOnTextViewFoodPick();
         addListenerOnProfile();
-
-        readCsv(getActivity());
 
         if(mydb.getLastProfile()!="")
             textViewWelcome.setText("Welcome back " + mydb.getLastProfile() +" "+ delicious_smiley);
