@@ -1,5 +1,9 @@
 package com.kaem.foodmood;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +14,7 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Typeface;
@@ -33,6 +38,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.opencsv.CSVReader;
 import com.vdurmont.emoji.EmojiParser;
 
 /**
@@ -78,6 +84,37 @@ public class PlaceholderFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
+
+    public final List<String[]> readCsv(Context context) {
+        List<String[]> questionList = new ArrayList<String[]>();
+        AssetManager assetManager = context.getAssets();
+
+        try {
+            InputStream csvStream = assetManager.open("food_data_csv.csv");
+            InputStreamReader csvStreamReader = new InputStreamReader(csvStream);
+            CSVReader csvReader = new CSVReader(csvStreamReader);
+            String[] line;
+
+            // throw away the header
+            csvReader.readNext();
+
+            while ((line = csvReader.readNext()) != null) {
+                questionList.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        String stemp = "";
+        for (String s : questionList.get(0)) {
+            stemp += " " + s;
+        }
+        TextViewProfile.setText(stemp);
+
+
+        return questionList;
+    }
 
     public void addListenerOnProfile(){
 
@@ -396,6 +433,8 @@ public class PlaceholderFragment extends Fragment {
         addListenerOnEditTextName();
         addListenerOnTextViewFoodPick();
         addListenerOnProfile();
+
+        readCsv(getActivity());
 
         if(mydb.getLastProfile()!="")
             textViewWelcome.setText("Welcome back " + mydb.getLastProfile() +" "+ delicious_smiley);
