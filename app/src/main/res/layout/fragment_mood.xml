@@ -26,9 +26,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:weightSum="1">
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Excited"
@@ -38,6 +40,7 @@
                     android:textOff="Excited" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -47,6 +50,7 @@
                     android:textOn="Moody" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -56,6 +60,7 @@
                     android:textOn="tired" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -82,11 +87,13 @@
                 android:textSize="30dp" />
 
             <LinearLayout
+                android:weightSum="1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Excited"
@@ -96,6 +103,7 @@
                     android:textOff="Excited" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -105,6 +113,7 @@
                     android:textOn="Moody" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -114,6 +123,7 @@
                     android:textOn="tired" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -141,9 +151,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:weightSum="1">
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Excited"
@@ -153,6 +165,7 @@
                     android:textOff="Excited" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -162,6 +175,7 @@
                     android:textOn="Moody" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -171,6 +185,7 @@
                     android:textOn="tired" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -196,11 +211,13 @@
                 android:textSize="30dp" />
 
             <LinearLayout
+                android:weightSum="1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Excited"
@@ -210,6 +227,7 @@
                     android:textOff="Excited" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -219,6 +237,7 @@
                     android:textOn="Moody" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -228,6 +247,7 @@
                     android:textOn="tired" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -253,11 +273,13 @@
                 android:textSize="30dp" />
 
             <LinearLayout
+                android:weightSum="1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Excited"
@@ -267,6 +289,7 @@
                     android:textOff="Excited" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -276,6 +299,7 @@
                     android:textOn="Moody" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
@@ -285,6 +309,7 @@
                     android:textOn="tired" />
 
                 <ToggleButton
+                    android:layout_weight="0.25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"

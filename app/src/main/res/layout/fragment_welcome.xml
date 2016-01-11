@@ -14,14 +14,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:weightSum="1"
         android:theme="@style/AppTheme"
-        style="@style/AppTheme">
+        style="@style/AppTheme"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <com.rockerhieu.emojicon.EmojiconTextView
             android:id="@+id/textViewWelcome"
@@ -228,7 +226,6 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/TextViewFoodPick1"
-                        android:textStyle="normal"
                         android:text=""
                         style="@style/AppTheme"
                         android:theme="@style/AppTheme" />
@@ -251,15 +248,21 @@
 
 
                 </LinearLayout>
-                <LinearLayout
+                <GridLayout
                     style="@style/AppTheme"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:theme="@style/AppTheme"
-                    android:id="@+id/linearLayoutFood" >
+                    android:id="@+id/gridLayoutFood"
+                    android:columnCount="8"
+                    android:rowCount="13"
+                    android:columnOrderPreserved="true"
+                    android:alignmentMode="alignBounds"
+                    android:rowOrderPreserved="true"
+                    android:useDefaultMargins="true"
+                    android:textStyle="normal">
 
-                </LinearLayout>
+                </GridLayout>
             </LinearLayout>
 
         </LinearLayout>

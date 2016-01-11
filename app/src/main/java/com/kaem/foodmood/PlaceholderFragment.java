@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -24,6 +25,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -155,14 +157,14 @@ public class PlaceholderFragment extends Fragment {
 
         Resources res = getResources();
         String[] food_emoji = res.getStringArray(R.array.food_array);
+        for( int i = 0; i<food_emoji.length;i++){
+            food_emoji[i] = EmojiParser.parseToUnicode(food_emoji[i]);
+        }
         String[] food_emoji_selected = new String[3];
 
         Random rand = new Random();
-        int randTab[] = new int[3];
         for(int i=0;i<3;i++){
-            randTab[i] = rand.nextInt((food_emoji.length+1));
-            food_emoji_selected[i] = EmojiParser.parseToUnicode(food_emoji[randTab[i]]);
-
+            food_emoji_selected[i] = food_emoji[rand.nextInt(food_emoji.length)];
         }
 
         //TODO
@@ -170,20 +172,54 @@ public class PlaceholderFragment extends Fragment {
         //Call each by table_name[i]
 
         ArrayList<TextView> textViewArray = new ArrayList<>();
+        ArrayList<Animator> animatorsArray = new ArrayList<>();
 
-        LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.linearLayoutFood);
+        GridLayout layout = (GridLayout) rootView.findViewById(R.id.gridLayoutFood);
 
         for(int i=0;i<50;i++){
-            String sTextViewFoodPick = "TextViewFoodPick"+ Integer.toString(i);
-            LinearLayout A = new LinearLayout(getActivity());
-            A.setOrientation(LinearLayout.HORIZONTAL);
             TextView tempTextView = new TextView(getActivity());
-            tempTextView.setText(" " + i);
-            tempTextView.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-            tempTextView.setGravity(Gravity.LEFT);
-            textViewArray.add(i,tempTextView);
-            layout.addView(tempTextView);
+            textViewArray.add(i, tempTextView);
+            textViewArray.get(i).setText(food_emoji[i]);
+            textViewArray.get(i).setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+            textViewArray.get(i).setGravity(Gravity.LEFT);
+            textViewArray.get(i).setTypeface(TextViewFoodPick1.getTypeface());
+            textViewArray.get(i).setTextAppearance(getActivity(), R.style.Base_TextAppearance_AppCompat);
+            Animator tempfoodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
+            animatorsArray.add(i, tempfoodAnim1);
+            animatorsArray.get(i).setTarget(textViewArray.get(i));
+            animatorsArray.get(i).setStartDelay(i * 50);
+
+            int ii = i;
+            Animator tempfoodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_x);
+            animatorsArray.add(ii, tempfoodAnim2);
+            animatorsArray.get(ii).setTarget(textViewArray.get(i));
+            animatorsArray.get(ii).setStartDelay(i * 50);
+
+            int iii = i;
+            Animator tempfoodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_y);
+            animatorsArray.add(iii, tempfoodAnim3);
+            animatorsArray.get(iii).setTarget(textViewArray.get(i));
+            animatorsArray.get(iii).setStartDelay(i * 50);
+
+            layout.addView(textViewArray.get(i));
+            textViewArray.get(i).setAlpha(0);
+            textViewArray.get(i).setAlpha(0);
+            textViewArray.get(i).setScaleX(0);
+            textViewArray.get(i).setScaleY(0);
         }
+        AnimatorSet animsetEmoji = new AnimatorSet();
+        animsetEmoji.playTogether(animatorsArray);
+        animsetEmoji.start();
+
+        AnimatorSet animsetEmoji2 = new AnimatorSet();
+        animsetEmoji2.playTogether(animatorsArray);
+        animsetEmoji2.start();
+
+        AnimatorSet animsetEmoji3 = new AnimatorSet();
+        animsetEmoji3.playTogether(animatorsArray);
+        animsetEmoji3.start();
+//        layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT));
+//        layout.setOrientation(LinearLayout.HORIZONTAL);
 
 
         TextViewFoodPick1.append(food_emoji_selected[0]);
@@ -221,19 +257,19 @@ public class PlaceholderFragment extends Fragment {
 
         Animator foodAnim1pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
         foodAnim1pop.setTarget(TextViewFoodPick1);
-        foodAnim1pop.start();
+  //      foodAnim1pop.start();
 
         Animator foodAnim2pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
         foodAnim2pop.setTarget(TextViewFoodPick2);
         foodAnim2pop.setStartDelay(200);
-        foodAnim2pop.start();
+//        foodAnim2pop.start();
 
 
 
         Animator foodAnim3pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
         foodAnim3pop.setTarget(TextViewFoodPick3);
         foodAnim3pop.setStartDelay(400);
-        foodAnim3pop.start();
+//        foodAnim3pop.start();
 
 //        AnimatorSet s3 = new AnimatorSet();
 //        s3.play(foodAnim3pop);
