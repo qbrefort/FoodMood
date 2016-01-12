@@ -29,6 +29,24 @@ public class FoodList extends Food {
         }
         return res;
     }
+
+    public FoodList find_name(String food_name){
+        String[] res = new String[this.food_list.size()];
+
+        FoodList res_food_List = new FoodList();
+
+        food_name ="(?i).*"+food_name+".*";
+
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getName();
+            if(res[i].matches(food_name)){
+                res_food_List.add_to_list(this.food_list.get(i));
+                System.out.println("Found"+res[i]);
+            }
+        }
+        return res_food_List;
+    }
+
     public String[] get_kcal_in_String(){
         String[] res = new String[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){
@@ -67,17 +85,13 @@ public class FoodList extends Food {
         Food best_food = new Food();
         double best_carac=-1;
 
-
-
         for(Food temp_food : this.food_list){
                 if (temp_food.getCarac(carac)> best_carac){
                     best_carac = temp_food.getCarac(carac);
                     best_food = temp_food;
                 }
-
         }
         return best_food;
-
     }
 
     public Food get_a_food_by_char(String carac1,String carac2){
@@ -100,10 +114,7 @@ public class FoodList extends Food {
             if(max_carac < temp_food.getCarac(carac)) {
                 max_carac = temp_food.getCarac(carac);
                 food = temp_food;
-                System.out.println("ICIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
             }
-            else
-                System.out.println("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
         }
         return food;
     }

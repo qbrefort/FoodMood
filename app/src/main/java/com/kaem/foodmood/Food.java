@@ -123,7 +123,7 @@ public class Food {
     public double getCarac(String carac) {
         if (carac.equals("magnesium")) {return this.magnesium;}
         if (carac.equals("protein")) {return this.protein;}
-        if (carac.equals("kcal")) {System.out.println("CALLLLLLLLLLLLLLLLLL");return this.kcal;}
+        if (carac.equals("kcal")) {;return this.kcal;}
         if (carac.equals("fer")) {return this.fer;}
         if (carac.equals("fer")) {return this.fer;}
         if (carac.equals("vit_a")) {return this.vit_a;}

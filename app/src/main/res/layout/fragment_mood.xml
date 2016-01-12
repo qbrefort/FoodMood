@@ -322,7 +322,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Eath Healthy Now!"
+            android:text="Eat Healthy Now!"
             android:id="@+id/buttonSendMoodStatus"
             android:layout_gravity="center_horizontal" />
 

@@ -169,6 +169,10 @@ public class FoodActivity extends Fragment  {
         String[] kcalList = myFoodList.get_kcal_in_String();
         String[] protList = myFoodList.get_protein_in_String();
 
+        myFoodList.find_name("butter");
+
+
+
         populateListView(nameList,kcalList,protList);
 
         return rootView;

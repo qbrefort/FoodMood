@@ -44,14 +44,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC1"
+                    android:text="Energy" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC1u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="kcal" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -66,14 +78,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="Protein (mg)" />
-                <TextView
-                    android:id="@+id/textViewC2"
+                    android:text="Protein" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC2u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="g" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -87,13 +111,25 @@
                     android:layout_margin="5dp"
                     android:textSize="20dp"
                     android:text="Lipid" />
-                <TextView
-                    android:id="@+id/textViewC3"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC3u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="g" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -107,15 +143,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC4"
-                    android:layout_gravity="left"
+                    android:text="Fiber" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC4u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="g" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -129,15 +176,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC5"
-                    android:layout_gravity="left"
+                    android:text="Sugar" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC5u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="g" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -151,15 +209,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC6"
-                    android:layout_gravity="left"
+                    android:text="Calcium" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC6u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="mg" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -174,15 +243,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC7"
-                    android:layout_gravity="left"
+                    android:text="Iron" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC7u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="mg" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -196,15 +276,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC8"
-                    android:layout_gravity="left"
+                    android:text="Mag" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC8u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="mg" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -218,15 +309,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC9"
-                    android:layout_gravity="left"
+                    android:text="Vit A" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC9u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="SU" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -240,15 +342,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:textSize="20dp"
-                    android:text="kcal" />
-                <TextView
-                    android:id="@+id/textViewC10"
-                    android:layout_gravity="left"
+                    android:text="Vit B" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:textSize="20dp"
-                    android:text="10g" />
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textViewC10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="10" />
+                    <TextView
+                        android:id="@+id/textViewC10u"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:textSize="20dp"
+                        android:text="mg" />
+                </LinearLayout>
             </LinearLayout>
         </GridLayout>
     </LinearLayout>
