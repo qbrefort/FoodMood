@@ -17,10 +17,9 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
+            android:inputType="text"
             android:id="@+id/editTextCol" />
 
         <Button
@@ -46,4 +45,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textViewFoodList" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

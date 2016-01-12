@@ -7,6 +7,13 @@ import java.util.List;
  */
 public class Food {
 
+    private double magnesium;
+    private double kcal;
+    private double protein;
+    private double fer;
+    private double vit_c;
+    private double vit_a;
+
     private String name;
 
     public void setName(String name) {
@@ -31,19 +38,12 @@ public class Food {
 
 
 
-    public double getProtein() {
-        return protein;
-    }
 
     public void setProtein(double protein) {
         this.protein = protein;
     }
 
-    private double magnesium;
-    private double protein;
-    private double fer;
-    private double vit_c;
-    private double vit_a;
+
 
     public Food() {
         this.name = "FoodName";
@@ -60,15 +60,25 @@ public class Food {
         this.vit_c = 0;
     }
 
-    public void importFood(List<String[]> list_input){
+    public Food(List<String[]> list_input){
         for(String[] temp : list_input) {
             this.setName(temp[1]);
             this.setProtein(Double.parseDouble(temp[4]));
             this.setFer(Double.parseDouble(temp[17]));
+            this.setKcal(Double.parseDouble(temp[3]));
             this.setMagnesium(Integer.parseInt(temp[12]));
             this.setVit_a(Double.parseDouble(temp[32]));
             this.setVit_c(Double.parseDouble(temp[20]));
         }
+    }
+    public Food(String[] list_input){
+        this.setName(list_input[1]);
+        this.setKcal(Double.parseDouble(list_input[3]));
+        this.setProtein(Double.parseDouble(list_input[4]));
+        this.setFer(Double.parseDouble(list_input[17]));
+        this.setMagnesium(Integer.parseInt(list_input[12]));
+        this.setVit_a(Double.parseDouble(list_input[32]));
+        this.setVit_c(Double.parseDouble(list_input[20]));
     }
 
 
@@ -96,15 +106,28 @@ public class Food {
         return magnesium;
     }
 
+    public double getProtein() {return protein;}
+
+    public double getKcal() {
+        return kcal;
+    }
+
+    public void setKcal(double kcal) {
+        this.kcal = kcal;
+    }
+
     public String getName() {
         return name;
     }
 
     public double getCarac(String carac) {
-        if (carac=="magnesium") {return magnesium;}
-        if (carac=="fer") {return fer;}
-        if (carac=="vit_a") {return vit_a;}
-        if (carac=="vit_c") {return vit_c;}
+        if (carac.equals("magnesium")) {return this.magnesium;}
+        if (carac.equals("protein")) {return this.protein;}
+        if (carac.equals("kcal")) {System.out.println("CALLLLLLLLLLLLLLLLLL");return this.kcal;}
+        if (carac.equals("fer")) {return this.fer;}
+        if (carac.equals("fer")) {return this.fer;}
+        if (carac.equals("vit_a")) {return this.vit_a;}
+        if (carac.equals("vit_c")) {return this.vit_c;}
         else return -1;
     }
 }

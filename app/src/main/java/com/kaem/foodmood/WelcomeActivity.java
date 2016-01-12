@@ -62,29 +62,7 @@ public class WelcomeActivity extends ActionBarActivity implements MoodActivity.O
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        Food banane = new Food("banane",10,10,9,20);
-        Food chou = new Food("chou",15,1,2,3);
-
-        FoodList the_Food_List = new FoodList();
-
-        the_Food_List.add_to_list(banane);
-        the_Food_List.add_to_list(chou);
-
-        Food best_food1 = the_Food_List.get_a_food_by_char("fer");
-
-        Food best_food2 = the_Food_List.get_a_food_by_char("fer","vit_a");
-
-        System.out.println("La meilleure nourriture suivant le fer:" + best_food1.getName());
-        System.out.println("La meilleure nourriture suivant le fer et la vit A:" + best_food2.getName());
-
-
-
-
-
         //textViewtest.getText();
-
-
-
 
     }
     public void OnSendMoodStatus(int position) {
