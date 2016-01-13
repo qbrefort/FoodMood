@@ -36,13 +36,10 @@ public class FoodActivity extends Fragment  {
 
     private View rootView;
 
-    private TextView textViewFoodList;
-    private EditText editTextFindBestFood;
-    private Button buttonFindBestFood;
+    private EditText editTextSearchFood;
+    private Button buttonSearchFood;
 
-    private ListView listView;
-
-    private String sort_carac;
+    private String search_food_string;
 
     private FoodList myFoodList;
 
@@ -91,11 +88,14 @@ public class FoodActivity extends Fragment  {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String sort_carac = parent.getItemAtPosition(position).toString();
-
-                FoodList bestFoodList = myFoodList;
-                bestFoodList.sort_by(sort_carac);
-                populateListView(bestFoodList);
-
+                if(sort_carac.equals("Don't order")){
+                    //Flush the search EditText
+                    editTextSearchFood.setText("");
+                    //Reload the foodlist
+                    importFoodList();
+                }
+                myFoodList.sort_by(sort_carac);
+                populateListView(myFoodList);
             }
 
             @Override
@@ -106,6 +106,7 @@ public class FoodActivity extends Fragment  {
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<>();
+        categories.add("Don't order");
         categories.add("Energy");
         categories.add("Protein");
         categories.add("Lipid");
@@ -116,7 +117,6 @@ public class FoodActivity extends Fragment  {
         categories.add("Magnesium");
         categories.add("Vit A");
         categories.add("Vit C");
-        categories.add("Reset");
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, categories);
@@ -143,7 +143,7 @@ public class FoodActivity extends Fragment  {
         String[] vitcList = foodList.get_vitc_in_String();
 
         int [] prgmImages = new int[1000];
-        for(int i=0;i<100;i++){
+        for(int i=0;i<1000;i++){
             prgmImages[i] = R.drawable.french_fries;
         }
         //String [] prgm={"Fries ","Banana ","Broccoli ","Apple "};
@@ -154,27 +154,22 @@ public class FoodActivity extends Fragment  {
 
     public void addListenerTextViewFoodList(){
 
-        textViewFoodList = (TextView) rootView.findViewById(R.id.textViewFoodList);
-        buttonFindBestFood = (Button) rootView.findViewById(R.id.buttonFindBestFood);
-        editTextFindBestFood = (EditText) rootView.findViewById(R.id.editTextFindBestFood);
+        buttonSearchFood = (Button) rootView.findViewById(R.id.buttonSearchFood);
+        editTextSearchFood = (EditText) rootView.findViewById(R.id.editTextSearchFood);
 
         col = 1;
 
-        int nb_displayed = 0;
-
-        buttonFindBestFood.setOnClickListener(new View.OnClickListener(){
+        buttonSearchFood.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                sort_carac = editTextFindBestFood.getText().toString();
+                search_food_string = editTextSearchFood.getText().toString();
 
-                if(sort_carac.isEmpty()){
+                if(search_food_string.isEmpty()){
                     populateListView(myFoodList);
-                    System.out.println("BLAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 }
                 else{
-                    FoodList bestFoodList = myFoodList;
-                    bestFoodList.sort_by(sort_carac);
-                    populateListView(bestFoodList);
+                    myFoodList.find_name(search_food_string);
+                    populateListView(myFoodList);
                 }
 
             }
@@ -182,11 +177,6 @@ public class FoodActivity extends Fragment  {
 
         foodList = readCsv(getActivity());
 
-        String temp_textview = "";
-        for (int i=0 ; i<nb_displayed ; i++){
-            temp_textview +=foodList.get(i)[col]+" ";
-        }
-        textViewFoodList.setText(temp_textview);
     }
 
     public final List<String[]> readCsv(Context context) {
@@ -212,6 +202,15 @@ public class FoodActivity extends Fragment  {
         return questionList;
     }
 
+    public void importFoodList(){
+        myFoodList = new FoodList();
+
+        for(int i=0;i<1000;i++){
+            Food tfl  = new Food(getFood_from_csv(i));
+            myFoodList.add_to_list(tfl);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -220,32 +219,7 @@ public class FoodActivity extends Fragment  {
 
         addListenerTextViewFoodList();
 
-        Food banane = new Food(getFood_from_csv(0));
-        Food banane2 = new Food(getFood_from_csv(1));
-        Food banane3 = new Food(getFood_from_csv(2));
-        Food banane4 = new Food(getFood_from_csv(3));
-
-
-        myFoodList = new FoodList();
-
-        for(int i=0;i<1000;i++){
-            Food tfl  = new Food(getFood_from_csv(i));
-            myFoodList.add_to_list(tfl);
-        }
-
-        myFoodList.add_to_list(banane);
-        myFoodList.add_to_list(banane2);
-        myFoodList.add_to_list(banane3);
-        myFoodList.add_to_list(banane4);
-
-//        String[] nameList = csv_to_array();
-//        String[] kcalList = csv_to_array(3);
-//        String[] protList = csv_to_array(4);
-
-
-
-        myFoodList.find_name("butter");
-
+        importFoodList();
 
 
         populateListView(myFoodList);

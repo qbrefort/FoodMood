@@ -119,7 +119,7 @@ public class FoodList extends Food {
             case "Vit C":
                 tsorted=this.get_vitc_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
                 break;
-            case "Reset":
+            case "Don't order":
                 tsorted=this.get_id_in_int();quickSort_increasing_order(tsorted,0,this.food_list.size()-1);
                 break;
             default:
@@ -144,7 +144,7 @@ public class FoodList extends Food {
         return res;
     }
 
-    public FoodList find_name(String food_name){
+    public void find_name(String food_name){
         String[] res = new String[this.food_list.size()];
 
         FoodList res_food_List = new FoodList();
@@ -158,7 +158,7 @@ public class FoodList extends Food {
                 System.out.println("Found"+res[i]);
             }
         }
-        return res_food_List;
+        this.food_list = res_food_List.food_list;
     }
 
     public String[] get_kcal_in_String(){
@@ -199,7 +199,7 @@ public class FoodList extends Food {
     public String[] get_cal_in_String(){
         String[] res = new String[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){
-            res[i] = Double.toString(this.food_list.get(i).getCal());
+            res[i] = Integer.toString( (int) this.food_list.get(i).getCal());
         }
         return res;
     }
@@ -222,7 +222,7 @@ public class FoodList extends Food {
     public String[] get_vita_in_String(){
         String[] res = new String[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){
-            res[i] = Double.toString(this.food_list.get(i).getVit_a());
+            res[i] = Integer.toString((int) this.food_list.get(i).getVit_a());
         }
         return res;
     }

@@ -14,63 +14,57 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:weightSum="1"
-        android:layout_height="wrap_content">
+        android:weightSum="3"
+        android:layout_height="80dp">
 
-        <EditText
-            android:layout_width="80dp"
-            android:layout_weight="0.25"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:nextFocusDown="@+id/buttonFindBestFood"
-            android:id="@+id/editTextFindBestFood" />
-
-        <Button
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:textSize="12dp"
-            android:text="FindBestFood"
-            android:id="@+id/buttonFindBestFood" />
+            android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
+                    android:text="Order by:"
+                    android:layout_gravity="center" />
+
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:prompt="@string/spinner_prompt"
+                    android:id="@+id/spinnerSortList"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
 
         <EditText
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:nextFocusDown="@+id/buttonSearchFood"
             android:inputType="text"
-            android:id="@+id/editText" />
+            android:id="@+id/editTextSearchFood"
+            android:layout_gravity="center_vertical" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SearchFood"
             android:textSize="12dp"
-            android:layout_weight="0.25"
-            android:id="@+id/buttonSearchFood" />
+            android:layout_weight="1"
+            android:id="@+id/buttonSearchFood"
+            android:layout_gravity="center_vertical" />
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerSortList" />
+
+
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="FoodList"
-        android:id="@+id/textView6"
-        style="@style/AppTheme"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textViewFoodList" />
 
     <ListView
         android:layout_width="match_parent"
