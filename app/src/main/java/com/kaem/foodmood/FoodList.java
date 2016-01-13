@@ -1,5 +1,7 @@
 package com.kaem.foodmood;
 
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,14 @@ import java.util.List;
  * Created by Quentin on 28/12/2015.
  */
 public class FoodList extends Food {
+
+    public List<Food> getFood_list() {
+        return food_list;
+    }
+
+    public void setFood_list(List<Food> food_list) {
+        this.food_list = food_list;
+    }
 
     private List <Food> food_list;
 
@@ -18,8 +28,112 @@ public class FoodList extends Food {
         this.food_list = listFood;
     }
 
-    public void sort_by(){
-        //TODO
+    int partition_increasing_order(double arr[], int left, int right) {
+        int i = left, j = right;
+        double tmp;
+        Food tmpFood;
+        double pivot = arr[(left + right) / 2];
+        while (i <= j) {
+            while (arr[i] < pivot)
+                i++;
+            while (arr[j] > pivot)
+                j--;
+            if (i <= j) {
+                tmp = arr[i];tmpFood = this.food_list.get(i);
+                arr[i] = arr[j];this.food_list.set(i, this.food_list.get(j));
+                arr[j] = tmp;this.food_list.set(j,tmpFood);
+                i++;
+                j--;
+            }
+        }
+        return i;
+    }
+    int partition_decreasing_order(double arr[], int left, int right) {
+        int i = left, j = right;
+        double tmp;
+        Food tmpFood;
+        double pivot = arr[(left + right) / 2];
+        while (i <= j) {
+            while (arr[i] > pivot)
+                i++;
+            while (arr[j] < pivot)
+                j--;
+            if (i <= j) {
+                tmp = arr[i];tmpFood = this.food_list.get(i);
+                arr[i] = arr[j];this.food_list.set(i, this.food_list.get(j));
+                arr[j] = tmp;this.food_list.set(j,tmpFood);
+                i++;
+                j--;
+            }
+        }
+        return i;
+    }
+
+    void quickSort_decreasing_order(double arr[], int left, int right) {
+        int index = partition_decreasing_order(arr, left, right);
+        if (left < index - 1)
+            quickSort_decreasing_order(arr, left, index - 1);
+        if (index < right)
+            quickSort_decreasing_order(arr, index, right);
+    }
+
+    void quickSort_increasing_order(double arr[], int left, int right) {
+        int index = partition_increasing_order(arr, left, right);
+        if (left < index - 1)
+            quickSort_increasing_order(arr, left, index - 1);
+        if (index < right)
+            quickSort_increasing_order(arr, index, right);
+    }
+
+    public void sort_by(String carac) {
+        double[] tsorted = new double[food_list.size()];
+
+        switch (carac) {
+            case "Energy":
+                tsorted=this.get_kcal_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Protein":
+                tsorted=this.get_protein_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Lipid":
+                tsorted=this.get_lip_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Fiber":
+                tsorted=this.get_fib_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Sugar":
+                tsorted=this.get_sug_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Iron":
+                tsorted=this.get_iron_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Magnesium":
+                tsorted=this.get_mag_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Calcium":
+                tsorted=this.get_cal_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Vit A":
+                tsorted=this.get_vita_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Vit C":
+                tsorted=this.get_vitc_in_double();quickSort_decreasing_order(tsorted, 0, this.food_list.size() - 1);
+                break;
+            case "Reset":
+                tsorted=this.get_id_in_int();quickSort_increasing_order(tsorted,0,this.food_list.size()-1);
+                break;
+            default:
+                //Toast.makeText(getActivity(), (String) data.result,Toast.LENGTH_LONG).show();
+                break;
+        }
+
+
+
+//        FoodList tempfl = this;
+//        for(int i=0;i<this.food_list.size();i++){
+//            tempfl.food_list.set(i,this.food_list.get(this.food_list.size()-1-i));
+//        }
+//        this.food_list = tempfl.food_list;
     }
 
     public String[] get_name(){
@@ -50,13 +164,79 @@ public class FoodList extends Food {
     public String[] get_kcal_in_String(){
         String[] res = new String[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){
-            res[i] = Double.toString(this.food_list.get(i).getKcal());
+            double d=this.food_list.get(i).getKcal();
+            int dd = (int) d;
+            res[i] = Integer.toString(dd);
         }
         return res;
     }
 
-    public Double[] get_kcal_in_Double(){
-        Double[] res = new Double[this.food_list.size()];
+
+    public String[] get_lip_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getLip());
+        }
+        return res;
+    }
+
+    public String[] get_fib_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getFib());
+        }
+        return res;
+    }
+
+    public String[] get_sug_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getSug());
+        }
+        return res;
+    }
+
+    public String[] get_cal_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getCal());
+        }
+        return res;
+    }
+
+    public String[] get_iron_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getIron());
+        }
+        return res;
+    }
+
+    public String[] get_mag_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getMag());
+        }
+        return res;
+    }
+    public String[] get_vita_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getVit_a());
+        }
+        return res;
+    }
+
+    public String[] get_vitc_in_String(){
+        String[] res = new String[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = Double.toString(this.food_list.get(i).getVit_c());
+        }
+        return res;
+    }
+
+    public double[] get_kcal_in_double(){
+        double[] res = new double[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){
             res[i] = this.food_list.get(i).getKcal();
         }
@@ -71,20 +251,82 @@ public class FoodList extends Food {
         return res;
     }
 
-    public Double[] get_protein_in_Double(){
-        Double[] res = new Double[this.food_list.size()];
+    public double[] get_id_in_int(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getId();
+        }
+        return res;
+    }
+
+    public double[] get_protein_in_double(){
+        double[] res = new double[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){
             res[i] = this.food_list.get(i).getProtein();
         }
         return res;
     }
 
-
+    public double[] get_lip_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getLip();
+        }
+        return res;
+    }
+    public double[] get_fib_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getFib();
+        }
+        return res;
+    }
+    public double[] get_sug_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getSug();
+        }
+        return res;
+    }
+    public double[] get_cal_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getCal();
+        }
+        return res;
+    }
+    public double[] get_iron_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getIron();
+        }
+        return res;
+    }
+    public double[] get_mag_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getMag();
+        }
+        return res;
+    }
+    public double[] get_vita_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getVit_a();
+        }
+        return res;
+    }
+    public double[] get_vitc_in_double(){
+        double[] res = new double[this.food_list.size()];
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getVit_c();
+        }
+        return res;
+    }
 
     public Food get_a_food_by_char(String carac){
         Food best_food = new Food();
         double best_carac=-1;
-
         for(Food temp_food : this.food_list){
                 if (temp_food.getCarac(carac)> best_carac){
                     best_carac = temp_food.getCarac(carac);
@@ -109,7 +351,7 @@ public class FoodList extends Food {
 
     public Food get_max_of(String carac){
         Food food = new Food();
-        Double max_carac = 0.0;
+        double max_carac = 0.0;
         for(Food temp_food : this.food_list){
             if(max_carac < temp_food.getCarac(carac)) {
                 max_carac = temp_food.getCarac(carac);

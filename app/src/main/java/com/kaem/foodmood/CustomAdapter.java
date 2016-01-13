@@ -20,14 +20,30 @@ public class CustomAdapter extends BaseAdapter{
     String [] nameFoodList;
     String [] kcalList;
     String [] protList;
+    String[] lipList ;
+    String[] fibList ;
+    String[] sugList ;
+    String[] calList ;
+    String[] ironList ;
+    String[] magList ;
+    String[] vitaList;
+    String[] vitcList;
     Context context;
     int [] imageId;
     private static LayoutInflater inflater=null;
-    public CustomAdapter(Activity mainActivity, String[] prgmNameList ,String[] prgmkcalList,String[] prgmprotList, int[] prgmImages) {
+    public CustomAdapter(Activity mainActivity, String[] prgmNameList ,String[] prgmkcalList,String[] prgmprotList,String[] prgmlipList,String[] prgmfibList,String[] prgmsugList,String[] prgmcalList,String[] prgmironList,String[] prgmmagList,String[] prgmvitaList,String[] prgmvitcList, int[] prgmImages) {
         // TODO Auto-generated constructor stub
         nameFoodList=prgmNameList;
         kcalList=prgmkcalList;
         protList=prgmprotList;
+        lipList=prgmlipList;
+        fibList=prgmfibList;
+        sugList=prgmsugList;
+        calList=prgmcalList;
+        ironList=prgmironList;
+        magList=prgmmagList;
+        vitaList=prgmvitaList;
+        vitcList=prgmvitcList;
         context=mainActivity;
         imageId=prgmImages;
         inflater = ( LayoutInflater )context.
@@ -56,6 +72,15 @@ public class CustomAdapter extends BaseAdapter{
         TextView tv;
         TextView tvkcal;
         TextView tvprot;
+        TextView tvlip;
+        TextView tvfib;
+        TextView tvsug;
+        TextView tvcal;
+        TextView tviron;
+        TextView tvmag;
+        TextView tvvita;
+        TextView tvvitc;
+
         ImageView img;
     }
     @Override
@@ -67,10 +92,26 @@ public class CustomAdapter extends BaseAdapter{
         holder.tv=(TextView) rowView.findViewById(R.id.textView1);
         holder.tvkcal=(TextView) rowView.findViewById(R.id.textViewC1);
         holder.tvprot=(TextView) rowView.findViewById(R.id.textViewC2);
+        holder.tvlip=(TextView) rowView.findViewById(R.id.textViewC3);
+        holder.tvfib=(TextView) rowView.findViewById(R.id.textViewC4);
+        holder.tvsug=(TextView) rowView.findViewById(R.id.textViewC5);
+        holder.tvcal=(TextView) rowView.findViewById(R.id.textViewC6);
+        holder.tviron=(TextView) rowView.findViewById(R.id.textViewC7);
+        holder.tvmag=(TextView) rowView.findViewById(R.id.textViewC8);
+        holder.tvvita=(TextView) rowView.findViewById(R.id.textViewC9);
+        holder.tvvitc=(TextView) rowView.findViewById(R.id.textViewC10);
         holder.img=(ImageView) rowView.findViewById(R.id.imageView1);
         holder.tv.setText(nameFoodList[position]);
         holder.tvkcal.setText(kcalList[position]);
         holder.tvprot.setText(protList[position]);
+        holder.tvlip.setText(lipList[position]);
+        holder.tvfib.setText(fibList[position]);
+        holder.tvsug.setText(sugList[position]);
+        holder.tvcal.setText(calList[position]);
+        holder.tviron.setText(ironList[position]);
+        holder.tvmag.setText(magList[position]);
+        holder.tvvita.setText(vitaList[position]);
+        holder.tvvitc.setText(vitcList[position]);
         holder.img.setImageResource(imageId[position]);
         rowView.setOnClickListener(new OnClickListener() {
             @Override

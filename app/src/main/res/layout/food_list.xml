@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="0dp"
         android:orientation="vertical" >
 
         <TextView
@@ -22,7 +22,9 @@
             android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
             android:text="TextView" />
         <GridLayout
             android:layout_width="match_parent"
@@ -36,19 +38,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
-                android:layout_marginBottom="5dp"
+                android:layout_margin="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC1name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:textSize="20dp"
                     android:text="Energy" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC1"
@@ -70,19 +70,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
-                android:layout_marginBottom="5dp"
+                android:layout_margin="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC2name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+
                     android:textSize="20dp"
                     android:text="Protein" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC2"
@@ -103,18 +103,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_margin="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC3name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    
                     android:textSize="20dp"
                     android:text="Lipid" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC3"
@@ -135,19 +136,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_margin="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC4name"
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
                     android:text="Fiber" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC4"
@@ -168,19 +170,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_margin="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC5name"
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
                     android:text="Sugar" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC5"
@@ -201,19 +204,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_marginLeft="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC6name"
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
                     android:text="Calcium" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC6"
@@ -234,6 +238,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_marginLeft="5dp"
 
                 android:orientation="vertical" >
                 <TextView
@@ -241,13 +246,13 @@
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
                     android:text="Iron" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC7"
@@ -268,19 +273,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_marginLeft="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC8name"
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
                     android:text="Mag" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC8"
@@ -301,19 +307,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_marginLeft="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC9name"
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
                     android:text="Vit A" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC9"
@@ -334,19 +341,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:layout_marginLeft="5dp"
                 android:orientation="vertical" >
                 <TextView
                     android:id="@+id/textViewC10name"
                     android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:textSize="20dp"
-                    android:text="Vit B" />
+                    android:text="Vit C" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="0dp"
                     android:orientation="horizontal" >
                     <TextView
                         android:id="@+id/textViewC10"

@@ -14,19 +14,45 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:weightSum="1"
         android:layout_height="wrap_content">
 
         <EditText
-            android:layout_width="100dp"
+            android:layout_width="80dp"
+            android:layout_weight="0.25"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:id="@+id/editTextCol" />
+            android:nextFocusDown="@+id/buttonFindBestFood"
+            android:id="@+id/editTextFindBestFood" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/buttonSetColumn" />
+            android:layout_weight="0.25"
+            android:textSize="12dp"
+            android:text="FindBestFood"
+            android:id="@+id/buttonFindBestFood" />
+
+        <EditText
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:nextFocusDown="@+id/buttonSearchFood"
+            android:inputType="text"
+            android:id="@+id/editText" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SearchFood"
+            android:textSize="12dp"
+            android:layout_weight="0.25"
+            android:id="@+id/buttonSearchFood" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerSortList" />
 
     </LinearLayout>
 

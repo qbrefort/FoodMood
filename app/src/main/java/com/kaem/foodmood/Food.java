@@ -7,10 +7,69 @@ import java.util.List;
  */
 public class Food {
 
-    private double magnesium;
     private double kcal;
     private double protein;
-    private double fer;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
+    public double getLip() {
+        return lip;
+    }
+
+    public void setLip(double lip) {
+        this.lip = lip;
+    }
+
+    private double lip;
+
+    public double getFib() {
+        return fib;
+    }
+
+    public void setFib(double fib) {
+        this.fib = fib;
+    }
+
+    private double fib;
+
+    public double getSug() {
+        return sug;
+    }
+
+    public void setSug(double sug) {
+        this.sug = sug;
+    }
+
+    private double sug;
+
+    public double getCal() {
+        return cal;
+    }
+
+    public void setCal(double cal) {
+        this.cal = cal;
+    }
+
+    private double cal;
+
+    public double getMag() {
+        return mag;
+    }
+
+    public void setMag(double mag) {
+        this.mag = mag;
+    }
+
+    private double mag;
+    private double iron;
     private double vit_c;
     private double vit_a;
 
@@ -20,12 +79,9 @@ public class Food {
         this.name = name;
     }
 
-    public void setMagnesium(double magnesium) {
-        this.magnesium = magnesium;
-    }
 
-    public void setFer(double fer) {
-        this.fer = fer;
+    public void setIron(double iron) {
+        this.iron = iron;
     }
 
     public void setVit_c(double vit_c) {
@@ -47,51 +103,45 @@ public class Food {
 
     public Food() {
         this.name = "FoodName";
-        this.fer = 0;
-        this.magnesium = 0;
+        this.id = 0;
+        this.kcal = 0;
+        this.sug = 0;
+        this.lip = 0;
+        this.fib = 0;
+        this.cal = 0;
+        this.cal = 0;
+        this.iron = 0;
+        this.mag = 0;
         this.vit_a = 0;
         this.vit_c = 0;
     }
     public Food(String name) {
         this.name = name;
-        this.fer = 0;
-        this.magnesium = 0;
+        this.iron = 0;
+        this.mag = 0;
         this.vit_a = 0;
         this.vit_c = 0;
     }
 
-    public Food(List<String[]> list_input){
-        for(String[] temp : list_input) {
-            this.setName(temp[1]);
-            this.setProtein(Double.parseDouble(temp[4]));
-            this.setFer(Double.parseDouble(temp[17]));
-            this.setKcal(Double.parseDouble(temp[3]));
-            this.setMagnesium(Integer.parseInt(temp[12]));
-            this.setVit_a(Double.parseDouble(temp[32]));
-            this.setVit_c(Double.parseDouble(temp[20]));
-        }
-    }
     public Food(String[] list_input){
+        this.setId(Integer.parseInt(list_input[0]));
         this.setName(list_input[1]);
-        this.setKcal(Double.parseDouble(list_input[3]));
+        this.setKcal(Integer.parseInt(list_input[3]));
         this.setProtein(Double.parseDouble(list_input[4]));
-        this.setFer(Double.parseDouble(list_input[17]));
-        this.setMagnesium(Integer.parseInt(list_input[12]));
+        this.setLip(Double.parseDouble(list_input[5]));
+        this.setFib(Double.parseDouble(list_input[8]));
+        this.setSug(Double.parseDouble(list_input[9]));
+        this.setSug(Double.parseDouble(list_input[9]));
+        this.setCal(Double.parseDouble(list_input[10]));
+        this.setIron(Double.parseDouble(list_input[11]));
+        this.setMag(Double.parseDouble(list_input[12]));
         this.setVit_a(Double.parseDouble(list_input[32]));
         this.setVit_c(Double.parseDouble(list_input[20]));
     }
 
 
-    public Food(String name,double fer,double magnesium, double vit_a, double vit_c) {
-        this.name = name;
-        this.fer = fer;
-        this.magnesium =magnesium;
-        this.vit_a = vit_a;
-        this.vit_c = vit_c;
-    }
-
-    public double getFer() {
-        return fer;
+    public double getIron() {
+        return iron;
     }
 
     public double getVit_c() {
@@ -100,10 +150,6 @@ public class Food {
 
     public double getVit_a() {
         return vit_a;
-    }
-
-    public double getMagnesium() {
-        return magnesium;
     }
 
     public double getProtein() {return protein;}
@@ -121,11 +167,11 @@ public class Food {
     }
 
     public double getCarac(String carac) {
-        if (carac.equals("magnesium")) {return this.magnesium;}
+        if (carac.equals("mag")) {return this.mag;}
         if (carac.equals("protein")) {return this.protein;}
         if (carac.equals("kcal")) {;return this.kcal;}
-        if (carac.equals("fer")) {return this.fer;}
-        if (carac.equals("fer")) {return this.fer;}
+        if (carac.equals("iron")) {return this.iron;}
+        if (carac.equals("iron")) {return this.iron;}
         if (carac.equals("vit_a")) {return this.vit_a;}
         if (carac.equals("vit_c")) {return this.vit_c;}
         else return -1;
