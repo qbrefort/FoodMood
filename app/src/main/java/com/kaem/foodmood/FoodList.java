@@ -122,18 +122,30 @@ public class FoodList extends Food {
             case "Don't order":
                 tsorted=this.get_id_in_int();quickSort_increasing_order(tsorted,0,this.food_list.size()-1);
                 break;
+            case "Best overall":
+                sort_best_carac_overall();
             default:
                 //Toast.makeText(getActivity(), (String) data.result,Toast.LENGTH_LONG).show();
                 break;
         }
+    }
 
+    public void sort_best_carac_overall(){
+        double[] tsorted = new double[food_list.size()];
 
-
-//        FoodList tempfl = this;
-//        for(int i=0;i<this.food_list.size();i++){
-//            tempfl.food_list.set(i,this.food_list.get(this.food_list.size()-1-i));
-//        }
-//        this.food_list = tempfl.food_list;
+        for(int i=0;i<this.getFood_list().size();i++){
+            tsorted[i] = //-  this.getFood_list().get(i).getKcal()/2000 +
+                    this.getFood_list().get(i).getProtein()/50 +
+ //                   this.getFood_list().get(i).getLip() +
+ //                   this.getFood_list().get(i).getFib() +
+                    this.getFood_list().get(i).getIron()/14 +
+                    this.getFood_list().get(i).getSug()/90 +
+                    this.getFood_list().get(i).getCal()/800 +
+                    this.getFood_list().get(i).getMag()/375 +
+                    //this.getFood_list().get(i).getVit_a() +
+                    this.getFood_list().get(i).getVit_c()/80;
+        }
+        quickSort_decreasing_order(tsorted,0,this.food_list.size()-1);
     }
 
     public String[] get_name(){
@@ -155,7 +167,22 @@ public class FoodList extends Food {
             res[i] = this.food_list.get(i).getName();
             if(res[i].matches(food_name)){
                 res_food_List.add_to_list(this.food_list.get(i));
-                System.out.println("Found"+res[i]);
+            }
+        }
+        this.food_list = res_food_List.food_list;
+    }
+
+    public void remove_by_name(String food_name){
+        String[] res = new String[this.food_list.size()];
+
+        FoodList res_food_List = new FoodList();
+
+        food_name ="(?i).*"+food_name+".*";
+
+        for(int i=0; i<this.food_list.size() ; i++){
+            res[i] = this.food_list.get(i).getName();
+            if(!res[i].matches(food_name)){
+                res_food_List.add_to_list(this.food_list.get(i));
             }
         }
         this.food_list = res_food_List.food_list;

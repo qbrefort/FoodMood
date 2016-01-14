@@ -38,6 +38,7 @@ public class FoodActivity extends Fragment  {
 
     private EditText editTextSearchFood;
     private Button buttonSearchFood;
+    private Button buttonRemoveFood;
 
     private String search_food_string;
 
@@ -107,6 +108,7 @@ public class FoodActivity extends Fragment  {
         // Spinner Drop down elements
         List<String> categories = new ArrayList<>();
         categories.add("Don't order");
+        categories.add("Best overall");
         categories.add("Energy");
         categories.add("Protein");
         categories.add("Lipid");
@@ -152,7 +154,7 @@ public class FoodActivity extends Fragment  {
         listView.setAdapter(new CustomAdapter(getActivity(), nameList, kcalList, protList,lipList,fibList,sugList,calList,ironList,magList,vitaList,vitcList,prgmImages));
     }
 
-    public void addListenerTextViewFoodList(){
+    public void addListenerButtonSearchFood(){
 
         buttonSearchFood = (Button) rootView.findViewById(R.id.buttonSearchFood);
         editTextSearchFood = (EditText) rootView.findViewById(R.id.editTextSearchFood);
@@ -164,19 +166,28 @@ public class FoodActivity extends Fragment  {
             public void onClick(View v) {
                 search_food_string = editTextSearchFood.getText().toString();
 
-                if(search_food_string.isEmpty()){
-                    populateListView(myFoodList);
-                }
-                else{
+                if(!search_food_string.isEmpty()){
                     myFoodList.find_name(search_food_string);
                     populateListView(myFoodList);
                 }
-
             }
         });
+    }
 
-        foodList = readCsv(getActivity());
+    public void addListenerButtonRemoveFood(){
+        buttonRemoveFood = (Button) rootView.findViewById(R.id.buttonRemoveFood);
 
+        buttonRemoveFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search_food_string = editTextSearchFood.getText().toString();
+
+                if(!search_food_string.isEmpty()){
+                    myFoodList.remove_by_name(search_food_string);
+                    populateListView(myFoodList);
+                }
+            }
+        });
     }
 
     public final List<String[]> readCsv(Context context) {
@@ -204,7 +215,6 @@ public class FoodActivity extends Fragment  {
 
     public void importFoodList(){
         myFoodList = new FoodList();
-
         for(int i=0;i<1000;i++){
             Food tfl  = new Food(getFood_from_csv(i));
             myFoodList.add_to_list(tfl);
@@ -217,11 +227,10 @@ public class FoodActivity extends Fragment  {
 
         rootView = inflater.inflate(R.layout.fragment_food, container, false);
 
-        addListenerTextViewFoodList();
-
+        foodList = readCsv(getActivity());
         importFoodList();
-
-
+        addListenerButtonSearchFood();
+        addListenerButtonRemoveFood();
         populateListView(myFoodList);
         addListenerSpinner();
 
