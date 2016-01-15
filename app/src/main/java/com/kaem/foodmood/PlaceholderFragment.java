@@ -152,90 +152,91 @@ public class PlaceholderFragment extends Fragment {
         TextViewFoodPick2 = (TextView) rootView.findViewById(R.id.TextViewFoodPick2);
         TextViewFoodPick3 = (TextView) rootView.findViewById(R.id.TextViewFoodPick3);
 
-        Resources res = getResources();
-        String[] food_emoji = res.getStringArray(R.array.food_array);
-        for( int i = 0; i<food_emoji.length;i++){
-            food_emoji[i] = EmojiParser.parseToUnicode(food_emoji[i]);
-        }
-        String[] food_emoji_selected = new String[3];
 
-        Random rand = new Random();
-        for(int i=0;i<3;i++){
-            food_emoji_selected[i] = food_emoji[rand.nextInt(food_emoji.length)];
-        }
+        final GridLayout layout = (GridLayout) rootView.findViewById(R.id.gridLayoutFood);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                Resources res = getResources();
+                String[] food_emoji = res.getStringArray(R.array.food_array);
+                for( int i = 0; i<food_emoji.length;i++){
+                    food_emoji[i] = EmojiParser.parseToUnicode(food_emoji[i]);
+                }
+                String[] food_emoji_selected = new String[3];
 
-        //TODO
-        //create table of string to declare name of TextView
-        //Call each by table_name[i]
+                Random rand = new Random();
+                for(int i=0;i<3;i++){
+                    food_emoji_selected[i] = food_emoji[rand.nextInt(food_emoji.length)];
+                }
+                ArrayList<TextView> textViewArray = new ArrayList<>();
+                ArrayList<Animator> animatorsArray = new ArrayList<>();
+                double col = layout.getWidth() / 90.0;
+                int intcol = (int) col;
+                layout.setColumnCount(intcol);
+                for(int i=0;i<50;i++){
+                    TextView tempTextView = new TextView(getActivity());
+                    textViewArray.add(i, tempTextView);
+                    textViewArray.get(i).setText(food_emoji[i]);
+                    textViewArray.get(i).setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+                    textViewArray.get(i).setGravity(Gravity.LEFT);
+                    textViewArray.get(i).setTypeface(TextViewFoodPick1.getTypeface());
+                    textViewArray.get(i).setTextAppearance(getActivity(), R.style.Base_TextAppearance_AppCompat);
+                    textViewArray.get(i).setTextSize(30);
+                    Animator tempfoodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
+                    animatorsArray.add(i, tempfoodAnim1);
+                    animatorsArray.get(i).setTarget(textViewArray.get(i));
+                    animatorsArray.get(i).setStartDelay(i * 50);
 
-        ArrayList<TextView> textViewArray = new ArrayList<>();
-        ArrayList<Animator> animatorsArray = new ArrayList<>();
+                    int ii = i;
+                    Animator tempfoodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_x);
+                    animatorsArray.add(ii, tempfoodAnim2);
+                    animatorsArray.get(ii).setTarget(textViewArray.get(i));
+                    animatorsArray.get(ii).setStartDelay(i * 50);
 
-        GridLayout layout = (GridLayout) rootView.findViewById(R.id.gridLayoutFood);
+                    int iii = i;
+                    Animator tempfoodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_y);
+                    animatorsArray.add(iii, tempfoodAnim3);
+                    animatorsArray.get(iii).setTarget(textViewArray.get(i));
+                    animatorsArray.get(iii).setStartDelay(i * 50);
 
-        for(int i=0;i<50;i++){
-            TextView tempTextView = new TextView(getActivity());
-            textViewArray.add(i, tempTextView);
-            textViewArray.get(i).setText(food_emoji[i]);
-            textViewArray.get(i).setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-            textViewArray.get(i).setGravity(Gravity.LEFT);
-            textViewArray.get(i).setTypeface(TextViewFoodPick1.getTypeface());
-            textViewArray.get(i).setTextAppearance(getActivity(), R.style.Base_TextAppearance_AppCompat);
-            Animator tempfoodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
-            animatorsArray.add(i, tempfoodAnim1);
-            animatorsArray.get(i).setTarget(textViewArray.get(i));
-            animatorsArray.get(i).setStartDelay(i * 50);
+                    layout.addView(textViewArray.get(i));
+                    textViewArray.get(i).setAlpha(0);
+                    textViewArray.get(i).setAlpha(0);
+                    textViewArray.get(i).setScaleX(0);
+                    textViewArray.get(i).setScaleY(0);
+                }
+                AnimatorSet animsetEmoji = new AnimatorSet();
+                animsetEmoji.playTogether(animatorsArray);
+                animsetEmoji.start();
 
-            int ii = i;
-            Animator tempfoodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_x);
-            animatorsArray.add(ii, tempfoodAnim2);
-            animatorsArray.get(ii).setTarget(textViewArray.get(i));
-            animatorsArray.get(ii).setStartDelay(i * 50);
+                AnimatorSet animsetEmoji2 = new AnimatorSet();
+                animsetEmoji2.playTogether(animatorsArray);
+                animsetEmoji2.start();
 
-            int iii = i;
-            Animator tempfoodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_y);
-            animatorsArray.add(iii, tempfoodAnim3);
-            animatorsArray.get(iii).setTarget(textViewArray.get(i));
-            animatorsArray.get(iii).setStartDelay(i * 50);
-
-            layout.addView(textViewArray.get(i));
-            textViewArray.get(i).setAlpha(0);
-            textViewArray.get(i).setAlpha(0);
-            textViewArray.get(i).setScaleX(0);
-            textViewArray.get(i).setScaleY(0);
-        }
-        AnimatorSet animsetEmoji = new AnimatorSet();
-        animsetEmoji.playTogether(animatorsArray);
-        animsetEmoji.start();
-
-        AnimatorSet animsetEmoji2 = new AnimatorSet();
-        animsetEmoji2.playTogether(animatorsArray);
-        animsetEmoji2.start();
-
-        AnimatorSet animsetEmoji3 = new AnimatorSet();
-        animsetEmoji3.playTogether(animatorsArray);
-        animsetEmoji3.start();
+                AnimatorSet animsetEmoji3 = new AnimatorSet();
+                animsetEmoji3.playTogether(animatorsArray);
+                animsetEmoji3.start();
 //        layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT));
 //        layout.setOrientation(LinearLayout.HORIZONTAL);
 
 
-        TextViewFoodPick1.append(food_emoji_selected[0]);
-        TextViewFoodPick2.append(food_emoji_selected[1]);
-        TextViewFoodPick3.append(food_emoji_selected[2]);
+                TextViewFoodPick1.append(food_emoji_selected[0]);
+                TextViewFoodPick2.append(food_emoji_selected[1]);
+                TextViewFoodPick3.append(food_emoji_selected[2]);
 
 
-        Animator foodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.my_rotation);
-        foodAnim1.setTarget(TextViewFoodPick1);
-        Animator foodAnim1out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
-        foodAnim1out.setTarget(TextViewFoodPick1);
-        Animator foodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.my_rotation);
-        foodAnim2.setTarget(TextViewFoodPick2);
-        Animator foodAnim2out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
-        foodAnim2out.setTarget(TextViewFoodPick2);
-        Animator foodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.my_rotation);
-        foodAnim3.setTarget(TextViewFoodPick3);
-        Animator foodAnim3out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
-        foodAnim3out.setTarget(TextViewFoodPick3);
+                Animator foodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.my_rotation);
+                foodAnim1.setTarget(TextViewFoodPick1);
+                Animator foodAnim1out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
+                foodAnim1out.setTarget(TextViewFoodPick1);
+                Animator foodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.my_rotation);
+                foodAnim2.setTarget(TextViewFoodPick2);
+                Animator foodAnim2out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
+                foodAnim2out.setTarget(TextViewFoodPick2);
+                Animator foodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.my_rotation);
+                foodAnim3.setTarget(TextViewFoodPick3);
+                Animator foodAnim3out = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
+                foodAnim3out.setTarget(TextViewFoodPick3);
 
 //        AnimatorSet s1 = new AnimatorSet();
 //        s1.playTogether(foodAnim1, foodAnim1out);
@@ -245,33 +246,37 @@ public class PlaceholderFragment extends Fragment {
 //        s2.playTogether(foodAnim2, foodAnim2out);
 //        s2.setStartDelay(200);
 //        s2.start();
-        TextViewFoodPick1.setScaleY(0);
-        TextViewFoodPick1.setScaleX(0);
-        TextViewFoodPick2.setScaleX(0);
-        TextViewFoodPick2.setScaleY(0);
-        TextViewFoodPick3.setScaleX(0);
-        TextViewFoodPick3.setScaleY(0);
+                TextViewFoodPick1.setScaleY(0);
+                TextViewFoodPick1.setScaleX(0);
+                TextViewFoodPick2.setScaleX(0);
+                TextViewFoodPick2.setScaleY(0);
+                TextViewFoodPick3.setScaleX(0);
+                TextViewFoodPick3.setScaleY(0);
 
-        Animator foodAnim1pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
-        foodAnim1pop.setTarget(TextViewFoodPick1);
-  //      foodAnim1pop.start();
+                Animator foodAnim1pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
+                foodAnim1pop.setTarget(TextViewFoodPick1);
+                //      foodAnim1pop.start();
 
-        Animator foodAnim2pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
-        foodAnim2pop.setTarget(TextViewFoodPick2);
-        foodAnim2pop.setStartDelay(200);
+                Animator foodAnim2pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
+                foodAnim2pop.setTarget(TextViewFoodPick2);
+                foodAnim2pop.setStartDelay(200);
 //        foodAnim2pop.start();
 
 
 
-        Animator foodAnim3pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
-        foodAnim3pop.setTarget(TextViewFoodPick3);
-        foodAnim3pop.setStartDelay(400);
+                Animator foodAnim3pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
+                foodAnim3pop.setTarget(TextViewFoodPick3);
+                foodAnim3pop.setStartDelay(400);
 //        foodAnim3pop.start();
 
 //        AnimatorSet s3 = new AnimatorSet();
 //        s3.play(foodAnim3pop);
 //        s2.setStartDelay(400);
 //        s3.start();
+
+
+            }
+        });
 
 
 

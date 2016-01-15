@@ -198,7 +198,6 @@ public class FoodList extends Food {
         return res;
     }
 
-
     public String[] get_lip_in_String(){
         String[] res = new String[this.food_list.size()];
         for(int i=0; i<this.food_list.size() ; i++){

@@ -245,23 +245,17 @@
                         android:text=""
                         style="@style/AppTheme"
                         android:theme="@style/AppTheme" />
-
-
                 </LinearLayout>
                 <GridLayout
                     style="@style/AppTheme"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:theme="@style/AppTheme"
                     android:id="@+id/gridLayoutFood"
-                    android:columnCount="8"
-                    android:rowCount="13"
-                    android:columnOrderPreserved="true"
-                    android:alignmentMode="alignBounds"
-                    android:rowOrderPreserved="true"
-                    android:useDefaultMargins="true"
-                    android:textStyle="normal">
-
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:columnWidth="30dp"
+                    android:rowCount="10"
+                    android:columnCount="5"
+                    android:gravity="center">
                 </GridLayout>
             </LinearLayout>
 
