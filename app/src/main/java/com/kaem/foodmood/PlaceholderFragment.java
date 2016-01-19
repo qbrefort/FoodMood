@@ -120,6 +120,13 @@ public class PlaceholderFragment extends Fragment {
             }
         });
 
+        ArrayList<String> rs = mydb.getAllContacts();
+        //String s1 = mydb.getData(1);
+        String stemp = "";
+        for (String s : rs) {
+            stemp += " " + s;
+        }
+        TextViewProfile.setText(stemp);
 
 
 
@@ -332,30 +339,6 @@ public class PlaceholderFragment extends Fragment {
                 }
             }
         });
-
-        editTextName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                name = editTextName.getText();
-                if (name=="")
-                    textViewWelcome.setText("Welcome !"+name+delicious_smiley);
-                else {
-                    String str = "Welcome back " + name + " :yum:";
-                    str = EmojiParser.parseToUnicode(str);
-                    textViewWelcome.setText(str);
-                }
-            }
-        });
-
-
     }
 
 
@@ -399,13 +382,10 @@ public class PlaceholderFragment extends Fragment {
         addListenerOnTextViewFoodPick();
         addListenerOnProfile();
 
-        if(mydb.getLastProfile()!="")
+        if(!mydb.getLastProfile().equals(""))
             textViewWelcome.setText("Welcome back " + mydb.getLastProfile() +" "+ delicious_smiley);
         else
             textViewWelcome.setText("Welcome "+ delicious_smiley);
-
-
-
 
         return rootView;
     }
