@@ -189,22 +189,27 @@ public class WelcomeFragment extends Fragment {
                     textViewArray.get(i).setTypeface(TextViewFoodPick1.getTypeface());
                     textViewArray.get(i).setTextAppearance(getActivity(), R.style.Base_TextAppearance_AppCompat);
                     textViewArray.get(i).setTextSize(30);
-                    Animator tempfoodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
-                    animatorsArray.add(i, tempfoodAnim1);
+                    Animator tmp_foodAnim1 = AnimatorInflater.loadAnimator(getActivity(),R.animator.fade_ioi);
+                    animatorsArray.add(i, tmp_foodAnim1);
                     animatorsArray.get(i).setTarget(textViewArray.get(i));
                     animatorsArray.get(i).setStartDelay(i * 50);
 
-                    int ii = i;
-                    Animator tempfoodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_x);
-                    animatorsArray.add(ii, tempfoodAnim2);
-                    animatorsArray.get(ii).setTarget(textViewArray.get(i));
-                    animatorsArray.get(ii).setStartDelay(i * 50);
+                    Animator tmp_foodAnim2 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_x);
+                    animatorsArray.add(i, tmp_foodAnim2);
+                    animatorsArray.get(i).setTarget(textViewArray.get(i));
+                    animatorsArray.get(i).setStartDelay(i * 50);
 
-                    int iii = i;
-                    Animator tempfoodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_y);
-                    animatorsArray.add(iii, tempfoodAnim3);
-                    animatorsArray.get(iii).setTarget(textViewArray.get(i));
-                    animatorsArray.get(iii).setStartDelay(i * 50);
+                    Animator tmp_foodAnim3 = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size_y);
+                    animatorsArray.add(i, tmp_foodAnim3);
+                    animatorsArray.get(i).setTarget(textViewArray.get(i));
+                    animatorsArray.get(i).setStartDelay(i * 50);
+
+
+
+                    Animator tmp_foodAnim4 = AnimatorInflater.loadAnimator(getActivity(),R.animator.trans_osci);
+                    animatorsArray.add(i, tmp_foodAnim4);
+                    animatorsArray.get(i).setTarget(textViewArray.get(i));
+                    animatorsArray.get(i).setStartDelay(i * 50);
 
                     layout.addView(textViewArray.get(i));
                     textViewArray.get(i).setAlpha(0);
@@ -262,25 +267,16 @@ public class WelcomeFragment extends Fragment {
 
                 Animator foodAnim1pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
                 foodAnim1pop.setTarget(TextViewFoodPick1);
-                //      foodAnim1pop.start();
 
                 Animator foodAnim2pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
                 foodAnim2pop.setTarget(TextViewFoodPick2);
                 foodAnim2pop.setStartDelay(200);
-//        foodAnim2pop.start();
 
 
 
                 Animator foodAnim3pop = AnimatorInflater.loadAnimator(getActivity(),R.animator.pop_size);
                 foodAnim3pop.setTarget(TextViewFoodPick3);
                 foodAnim3pop.setStartDelay(400);
-//        foodAnim3pop.start();
-
-//        AnimatorSet s3 = new AnimatorSet();
-//        s3.play(foodAnim3pop);
-//        s2.setStartDelay(400);
-//        s3.start();
-
 
             }
         });
