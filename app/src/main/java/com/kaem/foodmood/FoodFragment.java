@@ -32,7 +32,7 @@ import java.util.List;
 
 
 
-public class FoodActivity extends Fragment  {
+public class FoodFragment extends Fragment  {
 
     private View rootView;
 

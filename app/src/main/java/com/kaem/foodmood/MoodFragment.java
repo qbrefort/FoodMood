@@ -19,7 +19,7 @@ import android.widget.ToggleButton;
  * Created by Quentin on 28/12/2015.
  */
 
-public class MoodActivity extends Fragment {
+public class MoodFragment extends Fragment {
 
     private TextView tMood1 = null;
     private View rootView;
@@ -71,6 +71,8 @@ public class MoodActivity extends Fragment {
 
         return rootView;
     }
+
+
 
     public interface OnSendMoodStatusListener {
         public void OnSendMoodStatus(int position);

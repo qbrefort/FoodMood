@@ -34,7 +34,7 @@ import com.vdurmont.emoji.EmojiParser;
 /**
  * Created by Administrateur on 05/01/2016.
  */
-public class PlaceholderFragment extends Fragment {
+public class WelcomeFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
